@@ -1,12 +1,21 @@
 # Custom
 __MACOSX
 venv*
-models/*
-data/cifar-10*
-data/*
-tf_log*
-post.data
-*.h5
+
+node_modules
+
+.DS_Store
+config/env.yaml
+*.dump
+
+tmp/*
+errorShots/*
+browserstack.err
+public/javascripts/*.min.js
+public/stylesheets/*.min.css
+*.pem
+client/views/*
+cards/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
