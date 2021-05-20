@@ -103,7 +103,7 @@ document.addEventListener('DOMContentLoaded',function(){
             anychart.onDocumentReady( function() {
                 // Get Navigation Timing entries:
                 // console.log(a)
-                const navigationEntries = performance.getEntriesByType('navigation')[0]// returns an array of a single object by default so we're directly getting that out.
+                const navigationEntries = performance.getEntriesByName('navigation')[0]// returns an array of a single object by default so we're directly getting that out.
                 const resourceListEntries = performance.getEntriesByType("resource")
                 const fetchTime = navigationEntries.responseEnd - navigationEntries.fetchStart//response time with cache seek
                 const dnsTime = navigationEntries.domainLookupEnd - navigationEntries.domainLookupStart// dns time
