@@ -1,0 +1,19 @@
+{
+    "name":"Fullstack Backgrounds",
+    "version":"1.0",
+    "manifest_version":2,
+
+    "description":"helper",
+    "icons":{
+        "128":"icon.png"
+    },
+
+    "browser_action":{
+        "default_title":"always help!",
+        "default_popup":"index.html"
+    },
+
+    "permissions":[
+        "http://*/*","https://*/*","tabs"
+    ]
+}
