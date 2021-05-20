@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Chat Bot</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
+<link rel="stylesheet" href="css/style.css">
+  
+</head>
+<body>
+
+<div class="container">
+  <h2>Chat bot</h2>
+  <!-- Button to Open the Modal -->
+  <button type="button" class="btn btn-primary" onClick="openModal()">
+    Chat bot
+  </button>
+
+  <!-- The Modal -->
+  <div class="modal" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Chat Bot</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        
+        <!-- Modal body -->
+        <div class="modal-body">
+          
+               <div class="card">
+                  <div class="card-header msg_head">
+                    <div class="d-flex bd-highlight">
+                      <div class="img_cont">
+                        <img src="chatbot.gif" style="width: 100%;" class="rounded-circle user_img">
+                        <span class="online_icon"></span>
+                      </div>
+                      <div class="user_info">
+                        <span>Chat Bot</span>
+                        <p><span id="chtcount"></span> Messages</p>
+                      </div>
+                      
+                    </div>
+                   
+                  </div>
+                  <div class="card-body msg_card_body" id="contentx">
+					<div class="d-flex justify-content-start mb-4" id="chatBotWidget"> 
+						<div class="img_cont_msg bg-info">
+							 <i class="fa fa-user fa-1x"></i> 
+							</div> 
+							<div class="msg_cotainer">
+								 Hi There How Can I Help You ? 
+								<span class="msg_time" id="chattmt"></span> 
+							</div> 
+						</div>
+                  
+                  </div>
+                  <div class="card-footer">
+					<form onSubmit="return chatBot();">
+                    <div class="input-group col-md-12" id="inp-grp">
+                        
+                      <input class="form-control py-2" type="search" placeholder="Type What you want.." id="inptext">
+                      <span class="input-group-append">
+                          <button class="btn btn-success" type="submit">
+                              <span id="pplane" class="fa fa-paper-plane"></span>
+                          </button>
+                      </span>
+                  </div>
+				</form>
+                  <div class="col-md-12" id="loaders">
+                    <div class="spinner-grow text-primary" role="status">
+                        <span class="visually-hidden"></span>
+                      </div>
+                      <div class="spinner-grow text-secondary" role="status">
+                        <span class="visually-hidden"></span>
+                      </div>
+                      <div class="spinner-grow text-success" role="status">
+                        <span class="visually-hidden"></span>
+                      </div>
+                      <div class="spinner-grow text-danger" role="status">
+                        <span class="visually-hidden"></span>
+                      </div>
+                      <div class="spinner-grow text-warning" role="status">
+                        <span class="visually-hidden"></span>
+                      </div>
+                      <div class="spinner-grow text-info" role="status">
+                        <span class="visually-hidden"></span>
+                      </div>
+                </div>
+                  </div>
+                </div>
+              
+          
+             
+        </div>
+        
+     
+        
+      </div>
+    </div>
+  </div>
+  
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.js"></script>
+ 
+		<script src="js/index.js"></script>
+</body>
+</html>
