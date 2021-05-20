@@ -8,6 +8,8 @@ document.addEventListener('DOMContentLoaded',function(){
         navigation.classList.toggle('active')
     }
 
+    var tooltipsToggle=false
+
     chrome.tabs.query({active: true, lastFocusedWindow: true}, tabs => {
         let url = tabs[0].url;
         
@@ -38,11 +40,6 @@ document.addEventListener('DOMContentLoaded',function(){
                     titlearray.push(html.slice(init+1,final))
                 }
                 }
-            // console.log(titlearray)
-            someText = html.replace(/(\r\n|\n|\r)/gm, "");
-            // final=someText.replace(/\s/g,'')
-            // finalfinal=final.replace( /(<([^>]+)>)/ig, '')
-            // console.log(finalfinal);
             text=html.replace(/<style[^>]*>.*<\/style>/gm, 'xhsjsj').replace(/<script[^>]*>.*<\/script>/gm, 'xhsjsj').replace(/<[^>]+>/gm, 'xhsjsj').replace(/([\r\n]+ +)+/gm, 'xhsjsj');
             
             var res = text.split("xhsjsj");
@@ -63,12 +60,21 @@ document.addEventListener('DOMContentLoaded',function(){
             }else{
                 finalArray=finalArray.slice(0,25)
             }
+
+
             document.getElementById("tooltips").onclick=function(){
-                finalArray.forEach(function(item,index){
-                    var p2 = document.createElement('p');
-                    p2.innerHTML =item;
-                    document.getElementById("tooltipsEle").appendChild(p2)
-                })
+                document.getElementById("tooltipsEle").classList.toggle("scroll");
+                if(!tooltipsToggle){
+                    finalArray.forEach(function(item,index){
+                        var p2 = document.createElement('li');
+                        p2.innerHTML =item;
+                        document.getElementById("tooltipsEle").appendChild(p2)
+                    })
+                    tooltipsToggle=!tooltipsToggle
+                }else{
+                    document.getElementById("tooltipsEle").innerHTML=''
+                    tooltipsToggle=!tooltipsToggle
+                }
             }
             
             console.log(finalArray)
