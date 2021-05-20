@@ -1,3 +1,4 @@
+var start = performance.now()
 const rp = require('request-promise');
 const anychart=require('anychart')
 // const url = 'https://www.airbus.com/';
@@ -97,7 +98,7 @@ document.addEventListener('DOMContentLoaded',function(){
             });
 
 
-
+        var end = performance.now()
             // performance
 
             anychart.onDocumentReady( function() {
@@ -109,10 +110,9 @@ document.addEventListener('DOMContentLoaded',function(){
                 const dnsTime = navigationEntries.domainLookupEnd - navigationEntries.domainLookupStart// dns time
                 console.log(navigationEntries)
                     // set the data
-                var y = performance.now()
-                console.log(y)
+                console.log(end-start)
                 var data = [
-                       {x:"Performance", value: y},
+                       {x:"Performance", value: (end-start)},
                        {x:"ResponseTime", value: fetchTime},
                        {x:"dnsTime", value: dnsTime},
                        {x:"domTime", value: navigationEntries.domContentLoadedEventEnd - navigationEntries.domContentLoadedEventStart},
@@ -120,7 +120,6 @@ document.addEventListener('DOMContentLoaded',function(){
                 ]
                     // create the chart
                     var chart = anychart.bar()
-                
                     // add the data
                     var series = chart.bar(data)
                 
