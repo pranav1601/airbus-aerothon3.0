@@ -1,0 +1,52 @@
+body{
+    margin:0%;
+    background-color:black;
+}
+.box {
+    text-align:center;
+    height:150px;
+    background-color:red;
+}
+.box:hover {
+    background-color:black;
+  }
+
+.button1{
+    background-color:black;
+    color:red;
+    margin-left:1388px;
+}
+.box.box1 {
+    margin:5px;
+    margin-left:25px;
+    height:300px;   
+    width: 440px;
+    display: inline-flex;
+    flex-direction:row;
+    justify-content:center;
+}
+.box.box2 {
+    margin:5px;
+    margin-left:25px;
+    height:300px;
+    width: 440px;
+    display: inline-flex;
+    flex-direction:row;
+    justify-content:center;
+}
+
+.box1 {
+    margin-top:70px;
+    bottom:0%;
+    height:200px;
+    /*background-color:red;*/
+}
+.button {
+    background-color:black;
+    color:red;
+    height:60px;
+    text-align:center;
+    margin-left:600px;
+    font-size: 20px;
+}
+
