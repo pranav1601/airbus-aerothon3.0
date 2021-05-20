@@ -15,7 +15,7 @@ body{
     /* align-items: center; */
     /* min-height: 100vh; */
     overflow: hidden;
-    /* overflow-y: scroll; */
+    /*overflow-y: scroll;*/
 }
 
 .navigation{
@@ -35,7 +35,7 @@ body{
 
 .navigation.active{
     width:450px;
-    height: 550px;
+    height: 750px;
     border-color: #ff4081;
     transition: height 0.5s, width 0.5s;
     transition-delay: 0s,0.75s;
@@ -119,12 +119,15 @@ position: absolute;
   font-family: Arial, sans-serif;
 }
 
+/*.graph-container {
+    overflow-y: scroll;
+}*/
 .graph{
 margin: 2px;
   padding: 2px;
-  height: 190px;
+  height: 300px;
   border: 2px solid #ccc;
-  
+  /*overflow-y: scroll;*/
   /* font-size: 16px; */
   font-family: Arial, sans-serif;
 }

@@ -147,7 +147,7 @@ document.addEventListener('DOMContentLoaded',function(){
                           console.info(`Time taken to load ${resource.name}: `, resource.responseEnd - resource.startTime)
                     })
                     for(var i=0;i<data1.length;i++) {
-                       for(var j=0;j< (data1.length-i-1);j++) {
+                       for(var j=0;j<(data1.length-i-1);j++) {
                         if(data1[j].value > data1[j+1].value){
                             var temp = data1[j]
                             data1[j] = data1[j+1]
@@ -157,10 +157,14 @@ document.addEventListener('DOMContentLoaded',function(){
                     }
                     data1.reverse()
                     var data2 = []
-                    for(var i=0;i<10;i++) {
+                    for(var i=0;i<data1.length;i++) {
+                        if(i===10)
+                        break
                         data2.push(data1[i])
                     }
+                    console.log("Data 1")
                     console.log(data1)
+                    console.log("Data 2")
                     console.log(data2)
                     var chart1 = anychart.column()
                     var series1 = chart1.column(data2)
