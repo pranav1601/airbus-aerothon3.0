@@ -10,6 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "anychart": "^8.9.0",
     "request-promise": "^4.2.6"
   }
 }

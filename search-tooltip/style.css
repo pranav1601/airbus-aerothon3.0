@@ -34,8 +34,8 @@ body{
 }
 
 .navigation.active{
-    width:250px;
-    height: 350px;
+    width:450px;
+    height: 550px;
     border-color: #ff4081;
     transition: height 0.5s, width 0.5s;
     transition-delay: 0s,0.75s;
@@ -113,6 +113,16 @@ position: absolute;
   margin: 2px;
   padding: 2px;
   height: 150px;
+  border: 2px solid #ccc;
+  
+  /* font-size: 16px; */
+  font-family: Arial, sans-serif;
+}
+
+.graph{
+margin: 2px;
+  padding: 2px;
+  height: 190px;
   border: 2px solid #ccc;
   
   /* font-size: 16px; */
