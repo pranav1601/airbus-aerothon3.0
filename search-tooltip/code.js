@@ -209,7 +209,7 @@ document.addEventListener('DOMContentLoaded',function(){
                 addChat(input, product);
 
                 // document.getElementById("chatbot").innerHTML = product;
-                speak(product);
+                // speak(product);
 
                 //clear input value
                 document.getElementById("input").value = "";
@@ -226,7 +226,7 @@ document.addEventListener('DOMContentLoaded',function(){
               
                 let botDiv = document.createElement("div");
                 botDiv.id = "bot";
-                botDiv.innerHTML = `<span class="red">Chatbot:</span> <span id="bot-response"><i><em>${product}</em></i></span>`;
+                botDiv.innerHTML = `<span class="red">Chatbot:</span> <span id="bot-response"><em>${product}</em></span>`;
                 mainDiv.appendChild(botDiv);
                 speak(product);
               }
