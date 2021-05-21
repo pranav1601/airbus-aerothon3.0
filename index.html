@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>AIRBUS AEROTHON 3.0</title>
+        <meta name="description" content="" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <!-- <script src="./static/js/require.js"></script> -->
+        <!-- <link rel="stylesheet" href="./static/css/main.css" /> -->
+    </head>
+    <body style="background-color: #f9f7ee">
+        <div class="form">
+            <!-- <form action="/action_page.php" id="bug-report"> -->
+            <!-- <form onsubmit="execute()" id="bug-report"> -->
+            <form id="bug-report">
+                <label for="subject">Subject:</label><br>
+                <input type="text" id="subject" name="subject"><br>
+                <label for="description">Description:</label><br>
+                <textarea name="description" id="description" cols="50" rows="5" form="bug-report"></textarea><br>
+                <label for="email">Email:</label><br>
+                <input type="text" id="email" name="email"><br>
+                <!-- <br>
+                <label for="myfile">Select a file (Bug Screenshot):</label><br>
+                <input type="file" id="myfile" name="myfile"><br> -->
+                <br>
+                <input type="submit" value="Submit"><br>
+            </form>
+        </div>
+        <!-- <p id="demo"></p> -->
+        <!-- <script>
+            document.getElementById("demo").innerHTML = "Hello JavaScript!";
+        </script> -->
+        <!-- <script src="./server.js" async defer></script> -->
+        <script>
+            document.getElementById("bug-report").addEventListener("submit", async function execute(event) {
+                const subject = document.getElementById("subject").value;
+                const description = document.getElementById("description").value;
+                const email = document.getElementById("email").value;
+                const jsonRequest = {};
+                jsonRequest.subject = subject
+                jsonRequest.description = description
+                jsonRequest.email = email
+                // console.log(`jsonRequest: ${JSON.stringify(jsonRequest)}`);
+                let result = await fetch("http://localhost:8080/bugs", {
+                    method: "POST",
+                    headers: { "content-type": "application/json" },
+                    body: JSON.stringify(jsonRequest),
+                });
+                result = await result.json();
+                event.preventDefault();
+                if (!result.success) alert("FAILED! ");
+            }, false);
+        </script>
+        <!-- <script src="./bundle.js" async defer></script> -->
+        <!-- <script src="./static/js/main.js" async defer></script> -->
+        <noscript>Sorry, your browser does not support JavaScript!</noscript>
+    </body>
+</html>

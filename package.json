@@ -1,0 +1,23 @@
+{
+  "name": "airbus-aerothon3.0",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pranav1601/airbus-aerothon3.0.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pranav1601/airbus-aerothon3.0/issues"
+  },
+  "homepage": "https://github.com/pranav1601/airbus-aerothon3.0#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "pg": "^8.6.0"
+  }
+}
