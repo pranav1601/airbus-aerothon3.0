@@ -1,15 +1,15 @@
 {
-    "name":"Fullstack Backgrounds",
+    "name":"Konnex",
     "version":"1.0",
     "manifest_version":2,
 
-    "description":"helper",
+    "description":"A smart extension that allows you to get insights on the current website you're on such as tooltips for navigation purposes, a chatbot to get help while on the website, functionality to report a bug, view the performance of the webiste, and also announcements to view the latest updates.",
     "icons":{
-        "128":"icon.png"
+        "128":"icon128.png"
     },
 
     "browser_action":{
-        "default_title":"always help!",
+        "default_title":"A smart extension",
         "default_popup":"index.html"
     },
 

@@ -1,31 +1,65 @@
 const rp = require('request-promise');
 const anychart=require('anychart')
 // const url = 'https://www.airbus.com/';
+let count=0
 
 document.addEventListener('DOMContentLoaded',function(){
     const navigation=document.querySelector('.navigation')
-    document.querySelector('.toggle').onclick=function(){
-        this.classList.toggle('active')
-        navigation.classList.toggle('active')
-    }
 
     var tooltipsToggle=false
     var performanceToggle=false
     var chatToggle=false
     var reportToggle=false
+    var announceToggle=false
+    
+    
+    var performanceEle=document.getElementById("container")
+    performanceEle.style.display="none"
+
+    var chatEle=document.getElementById("chat")
+    document.getElementById("main").style.display="none"
+
+    var reportEle=document.getElementById("reportbug")
+    reportEle.style.display="none"
+
+    var announceEle=document.getElementById("announcement-message")
+    announceEle.style.display="none"
+
+    
+
+
+    document.querySelector('.toggle').onclick=function(){
+        this.classList.toggle('active')
+        navigation.classList.toggle('active')
+        count=count+1
+        if(count%2==0){
+            chatToggle=false
+            document.getElementById("main").style.display="none"
+
+
+            reportToggle=false
+            reportEle.style.display="none"
+
+
+            performanceToggle=false
+            performanceEle.style.display="none"
+            document.getElementById("container1").classList.remove("graph");
+            document.getElementById("container2").classList.remove("graph")
+
+            announceEle.style.display="none"
+            announceToggle=false
+
+            document.getElementById("tooltipsEle").innerHTML=''
+            document.getElementById("tooltipsEle").classList.remove("scroll");
+            tooltipsToggle=false
+        }
+    }
 
     chrome.tabs.query({active: true, lastFocusedWindow: true}, tabs => {
         let url = tabs[0].url;
 
 
-        var performanceEle=document.getElementById("container")
-        performanceEle.style.display="none"
-
-        var chatEle=document.getElementById("chat")
-        document.getElementById("main").style.display="none"
-
-        var reportEle=document.getElementById("reportbug")
-        reportEle.style.display="none"
+        
         // tooltip
         rp(url)
             .then(function(html){
@@ -91,7 +125,8 @@ document.addEventListener('DOMContentLoaded',function(){
                     document.getElementById("container1").classList.remove("graph");
                     document.getElementById("container2").classList.remove("graph")
 
-
+                    announceEle.style.display="none"
+                    announceToggle=false
 
                     finalArray.forEach(function(item,index){
                         var p2 = document.createElement('li');
@@ -269,6 +304,9 @@ document.addEventListener('DOMContentLoaded',function(){
                     document.getElementById("container1").classList.remove("graph");
                     document.getElementById("container2").classList.remove("graph")
 
+                    announceEle.style.display="none"
+                    announceToggle=false
+
 
                     document.getElementById("main").style.display="block"
                 }else{
@@ -299,6 +337,9 @@ document.addEventListener('DOMContentLoaded',function(){
                     performanceEle.style.display="none"
                     document.getElementById("container1").classList.remove("graph");
                     document.getElementById("container2").classList.remove("graph")
+
+                    announceEle.style.display="none"
+                    announceToggle=false
 
 
                     document.getElementById("submitbug").onclick=async function(){
@@ -425,6 +466,9 @@ document.addEventListener('DOMContentLoaded',function(){
                             reportToggle=false
                             reportEle.style.display="none"
 
+                            announceEle.style.display="none"
+                            announceToggle=false
+
 
                             chatToggle=false
                             document.getElementById("main").style.display="none"
@@ -440,6 +484,37 @@ document.addEventListener('DOMContentLoaded',function(){
                     }
                     
                 })
+
+                document.getElementById("announcements").onclick=function(){
+                    if(!announceToggle){
+                        announceEle.style.display="block"
+
+
+                        reportToggle=false
+                        reportEle.style.display="none"
+
+
+                        chatToggle=false
+                        document.getElementById("main").style.display="none"
+
+                        document.getElementById("tooltipsEle").innerHTML=''
+                        document.getElementById("tooltipsEle").classList.remove("scroll");
+                        tooltipsToggle=false
+
+                        performanceToggle=false
+                        performanceEle.style.display="none"
+                        document.getElementById("container1").classList.remove("graph");
+                        document.getElementById("container2").classList.remove("graph")
+
+
+                        fetch("http://34.229.15.195:8080/notification", { method: "GET" })
+                        .then((a) => a.json())
+                        .then(a => document.getElementById("announcement-message").innerHTML=a[0].message);
+                    }else{
+                        announceEle.style.display="none"
+                    }
+                    announceToggle=!announceToggle
+                }
     });
     
     
