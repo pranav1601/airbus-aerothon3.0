@@ -88,6 +88,7 @@ document.addEventListener('DOMContentLoaded',function(){
                     finalArray.forEach(function(item,index){
                         var p2 = document.createElement('li');
                         p2.innerHTML =item;
+                        p2.classList.add("tooltipsele")
                         document.getElementById("tooltipsEle").appendChild(p2)
                     })
                     tooltipsToggle=!tooltipsToggle
@@ -220,12 +221,12 @@ document.addEventListener('DOMContentLoaded',function(){
                 const mainDiv = document.getElementById("main");
                 let userDiv = document.createElement("div");
                 userDiv.id = "user";
-                userDiv.innerHTML = `You: <span id="user-response">${input}</span>`;
+                userDiv.innerHTML = `<span class="green">You:</span> <span id="user-response">${input}</span>`;
                 mainDiv.appendChild(userDiv);
               
                 let botDiv = document.createElement("div");
                 botDiv.id = "bot";
-                botDiv.innerHTML = `Chatbot: <span id="bot-response">${product}</span>`;
+                botDiv.innerHTML = `<span class="red">Chatbot:</span> <span id="bot-response"><i><em>${product}</em></i></span>`;
                 mainDiv.appendChild(botDiv);
                 speak(product);
               }
@@ -246,6 +247,7 @@ document.addEventListener('DOMContentLoaded',function(){
               chatEle.onclick=function(){
                 if(!chatToggle){
                     document.getElementById("tooltipsEle").innerHTML=''
+                    document.getElementById("tooltipsEle").classList.remove("scroll");
                     tooltipsToggle=false
 
                     performanceToggle=false

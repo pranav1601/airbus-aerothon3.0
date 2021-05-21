@@ -35,7 +35,7 @@ body{
 
 .navigation.active{
     width:450px;
-    height: 550px;
+    height: 750px;
     border-color: #ff4081;
     transition: height 0.5s, width 0.5s;
     transition-delay: 0s,0.75s;
@@ -90,9 +90,18 @@ body{
     width: 100%;
 }
 
-.navigation ul li:hover{
-    background: #03a9f4;
+.tooltipsele{
+    font-size: 12px;
+    margin:2px 1px ;
+    padding: 8px 16px;
+    border-style: solid;
+    border-width: 0.5px;
+    border-color: #ff4081;
 }
+
+/* .navigation ul li:hover{
+    background: #03a9f4;
+} */
 
 .navigation ul li a{
     position:relative;
@@ -116,6 +125,7 @@ position: absolute;
   border: 2px solid #ccc;
   
   /* font-size: 16px; */
+  
   font-family: Arial, sans-serif;
 }
 
@@ -145,3 +155,36 @@ margin: 2px;
     padding: 5px; 
     border: 1px solid #421; 
 }
+
+.button {
+    background-color: #2196f3; /* Green */
+    border: none;
+    color: white;
+    padding: 8px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 2px 1px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+  }
+  
+  .button1 {
+    background-color: white; 
+    color: black; 
+    width: 200px;
+    border: 1px solid #2196f3;
+  }
+  .button1:hover {
+    background-color: #2196f3;
+    color: white;
+  }
+
+  .red{
+      color: red;
+  }
+
+  .green{
+      color: green;
+  }
