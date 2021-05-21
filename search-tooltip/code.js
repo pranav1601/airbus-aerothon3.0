@@ -149,17 +149,24 @@ document.addEventListener('DOMContentLoaded',function(){
             });
 
 
-
+            
 
             // Chatbot
+            var botOuput='tryhere'
             const inputField = document.getElementById("input")
             inputField.addEventListener("keydown", function(e) {
                 if (e.code === "Enter") {
                     let input = inputField.value;
+                    botOuput=inputField.value
                     // document.getElementById("user").innerHTML = input;
                     output(input);
                 }
             });
+
+            const alternative = [
+                `You can get more information about this`
+            ];
+
             const trigger = [
                 //0 
                 ["hi", "hey", "hello"],
@@ -205,13 +212,7 @@ document.addEventListener('DOMContentLoaded',function(){
                 ["Goodbye", "See you later"],
             ];
                 
-            const alternative = [
-                "Same",
-                "Go on...",
-                "Try again",
-                "I'm listening...",
-                "Bro..."
-            ];
+            
 
             function compare(triggerArray, replyArray, text) {
                 let item;
@@ -245,7 +246,7 @@ document.addEventListener('DOMContentLoaded',function(){
                 } else if (text.match(/robot/gi)) {
                   product = robot[Math.floor(Math.random() * robot.length)];
                 } else {
-                  product = alternative[Math.floor(Math.random() * alternative.length)];
+                  product = alternative[Math.floor(Math.random() * alternative.length)] +  `<a href="https://www.google.com/search?q=${document.getElementById("input").value}"  target="_blank">here</a>`
                 }
                 
                 //update DOM
@@ -271,7 +272,7 @@ document.addEventListener('DOMContentLoaded',function(){
                 botDiv.id = "bot";
                 botDiv.innerHTML = `<span class="red">Chatbot:</span> <span id="bot-response"><em>${product}</em></span>`;
                 mainDiv.appendChild(botDiv);
-                speak(product);
+                // speak(product);
               }
 
               function speak(string) {
