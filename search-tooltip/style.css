@@ -188,3 +188,10 @@ margin: 2px;
   .green{
       color: green;
   }
+
+  .reportbug{
+    font-size: 12px;
+    margin:2px 1px ;
+    padding: 8px 16px;
+    border: 2px solid #ccc;
+  }

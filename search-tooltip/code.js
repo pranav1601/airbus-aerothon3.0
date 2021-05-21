@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded',function(){
     var tooltipsToggle=false
     var performanceToggle=false
     var chatToggle=false
+    var reportToggle=false
 
     chrome.tabs.query({active: true, lastFocusedWindow: true}, tabs => {
         let url = tabs[0].url;
@@ -22,6 +23,9 @@ document.addEventListener('DOMContentLoaded',function(){
 
         var chatEle=document.getElementById("chat")
         document.getElementById("main").style.display="none"
+
+        var reportEle=document.getElementById("reportbug")
+        reportEle.style.display="none"
         // tooltip
         rp(url)
             .then(function(html){
@@ -76,6 +80,10 @@ document.addEventListener('DOMContentLoaded',function(){
                 if(!tooltipsToggle){
                     chatToggle=false
                     document.getElementById("main").style.display="none"
+
+
+                    reportToggle=false
+                    reportEle.style.display="none"
 
 
                     performanceToggle=false
@@ -239,7 +247,7 @@ document.addEventListener('DOMContentLoaded',function(){
                 u.lang = "en-US";
                 u.volume = 1; //0-1 interval
                 u.rate = 1;
-                u.pitch = 1; //0-2 interval
+                u.pitch = 2; //0-2 interval
                 speechSynthesis.speak(u);
               }
               
@@ -249,6 +257,12 @@ document.addEventListener('DOMContentLoaded',function(){
                     document.getElementById("tooltipsEle").innerHTML=''
                     document.getElementById("tooltipsEle").classList.remove("scroll");
                     tooltipsToggle=false
+
+
+                    reportToggle=false
+                    reportEle.style.display="none"
+
+
 
                     performanceToggle=false
                     performanceEle.style.display="none"
@@ -262,6 +276,63 @@ document.addEventListener('DOMContentLoaded',function(){
                 }
                 chatToggle=!chatToggle
               }
+
+
+            
+
+
+            // report a bug.
+            document.getElementById("reportbugbutton").onclick=function(){
+                if(!reportToggle){
+
+                    reportEle.style.display="block"
+
+
+                    chatToggle=false
+                    document.getElementById("main").style.display="none"
+
+                    document.getElementById("tooltipsEle").innerHTML=''
+                    document.getElementById("tooltipsEle").classList.remove("scroll");
+                    tooltipsToggle=false
+
+                    performanceToggle=false
+                    performanceEle.style.display="none"
+                    document.getElementById("container1").classList.remove("graph");
+                    document.getElementById("container2").classList.remove("graph")
+
+
+                    document.getElementById("submitbug").onclick=async function(){
+                        var subject = document.getElementById("subject").value;
+                        var description = document.getElementById("description").value;
+                        var email = document.getElementById("email").value;
+                        var jsonRequest = {};
+                        document.getElementById("subject").value=''
+                        document.getElementById("description").value='';
+                        document.getElementById("email").value='';
+                        jsonRequest.subject = subject
+                        jsonRequest.description = description
+                        jsonRequest.email = email
+                        jsonRequest.url = url
+                        // console.log(`jsonRequest: ${JSON.stringify(jsonRequest)}`);
+                        let result = await fetch("http://34.229.15.195:8080/bugs", {
+                            method: "POST",
+                            headers: { "content-type": "application/json" },
+                            body: JSON.stringify(jsonRequest),
+                        });
+                        result = await result.json();
+                        console.log('result',result)
+                        document.getElementById("reporthead").innerHTML=`<span class="green">Submit another bug?</span>`
+                        if (!result.success) alert("FAILED! ");
+                    }
+
+                    
+                }else{
+                    reportEle.style.display="none"
+                }
+                reportToggle=!reportToggle
+            }
+            
+
 
 
 
@@ -349,6 +420,10 @@ document.addEventListener('DOMContentLoaded',function(){
                         if(!performanceToggle){
                             
                             performanceEle.style.display="block"
+
+
+                            reportToggle=false
+                            reportEle.style.display="none"
 
 
                             chatToggle=false

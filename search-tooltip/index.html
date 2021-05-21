@@ -30,8 +30,21 @@
                     <li>
                         <a href="#">
                             <span class="icon"></span>
-                            <button class="button button1">Report bug</button>
+                            <button id="reportbugbutton" class="button button1">Report bug</button>
                         </a>
+                        <div id="reportbug" class="reportbug">
+                            <div id="bug-report">
+                                <h3 id="reporthead">Submit a bug report.</h3>
+                                <label for="subject">Subject:</label><br>
+                                <input type="text" id="subject" name="subject"><br>
+                                <label for="description">Description:</label><br>
+                                <textarea name="description" id="description" cols="30" rows="5" form="bug-report"></textarea><br>
+                                <label for="email">Email:</label><br>
+                                <input type="text" id="email" name="email"><br>
+                                <br>
+                                <button id="submitbug" class="button">Submit bug</button>
+                            </div>
+                        </div>
                     </li>
                     <li>
                         <a href="#">
@@ -44,6 +57,13 @@
                             <div id="container2">   
                             </div>
                         </div>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span class="icon"></span>
+                            <button id="announcements" class="button button1">Announcements!!!</button>
+                            <h2 id="announcement-message"></h2>
+                        </a>
                     </li>
                 </ul>
             </div>
