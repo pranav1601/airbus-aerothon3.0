@@ -26,10 +26,12 @@
                 const subject = document.getElementById("subject").value;
                 const description = document.getElementById("description").value;
                 const email = document.getElementById("email").value;
+                const url = "https://www.airbus.com/";
                 const jsonRequest = {};
                 jsonRequest.subject = subject
                 jsonRequest.description = description
                 jsonRequest.email = email
+                jsonRequest.url = url
                 // console.log(`jsonRequest: ${JSON.stringify(jsonRequest)}`);
                 let result = await fetch("http://localhost:8080/bugs", {
                     method: "POST",
