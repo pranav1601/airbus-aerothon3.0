@@ -14,24 +14,12 @@ const client = new Client({
 
 app.get("/", (req, res) => res.sendFile(`${__dirname}/index.html`));
 
-// fetch("http://localhost:8080/bugs", {
-//     method: "GET",
-// })
-//     .then((a) => a.json())
-//     .then(console.log(a));
 app.get("/bugs", async (req, res) => {
     const rows = await getBugs();
     res.setHeader("content-type", "application/json");
     res.send(JSON.stringify(rows));
 });
 
-// fetch("http://localhost:8080/bugs", {
-//     method: "POST",
-//     headers: { "content-type": "application/json" },
-//     body: JSON.stringify({ bug: { email: "abc@xyz.com" } }),
-// })
-//     .then((a) => a.json())
-//     .then(console.log(a));
 app.post("/bugs", async (req, res) => {
     let result = {};
     try {
@@ -62,15 +50,25 @@ async function connect() {
     }
 }
 
-async function getBugs() {
+async function getBugs(email) {
     try {
-        const results = await client.query(
-            "SELECT * FROM bug_reports WHERE subject = $1",
-            ["navbar is wrong"]
-        );
+        const results = await client.query("SELECT * FROM bug_reports");
         return results.rows;
     } catch (e) {
         console.error(`err in getBugs: ${e}`);
+        return [];
+    }
+}
+
+async function getBugsByEmail(email) {
+    try {
+        const results = await client.query(
+            "SELECT * FROM bug_reports WHERE email = $1",
+            [email]
+        );
+        return results.rows;
+    } catch (e) {
+        console.error(`err in getBugsByEmail: ${e}`);
         return [];
     }
 }
@@ -80,21 +78,13 @@ async function createBugs(bug) {
         bug = JSON.stringify(bug);
         console.log(`bug: ${bug}`);
         bug = JSON.parse(bug);
-        // console.log(`bug: ${bug}`);
         await client.query(
             "CREATE TABLE IF NOT EXISTS bug_reports (id SERIAL PRIMARY KEY, subject VARCHAR(256) NOT NULL, description TEXT, email VARCHAR(100) NOT NULL, row_created_ TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT now(), row_updated_ TIMESTAMP WITH TIME ZONE)"
         );
         await client.query("BEGIN");
         await client.query(
             "INSERT INTO bug_reports VALUES (DEFAULT, $1, $2, $3)",
-            [
-                // "navbar is wrong",
-                // "location of navbar should be to left",
-                // "abc@xyz.com",
-                bug.subject,
-                bug.description,
-                bug.email,
-            ]
+            [bug.subject, bug.description, bug.email]
         );
         await client.query("COMMIT");
         return true;
