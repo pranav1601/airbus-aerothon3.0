@@ -1,0 +1,134 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+<style>
+  .body {
+    overflow-y: scroll;  
+    overflow-x: scroll;
+  }  
+  .center {
+  text-align: center;
+  /*border: 3px solid green;*/
+}
+  
+  /*h1 {
+	display: inline;
+	position: relative;
+	font: 80px Helvetica, Sans-Serif;
+	letter-spacing: -5px;
+	color: rgba(0,0,255,0.5); 
+}
+
+h1:after {
+	
+	position: absolute; left: 1px; top: 5px;
+	color: rgba(255,0,0,0.5);   
+}
+  */
+  h1{
+  color: #484848;
+  font-size: 50px;
+  font-weight: bold;
+  font-family: monospace;
+  letter-spacing: 7px;
+  cursor: pointer
+}
+h1 span{
+  transition: .5s linear
+}
+h1:hover span:nth-child(1){
+  margin-right: 5px
+}
+h1:hover span:nth-child(1):after{
+  content: "'";
+}
+h1:hover span:nth-child(2){
+  margin-left: 30px
+}
+h1:hover span{
+  color: #fff;
+  text-shadow: 0 0 10px #fff,
+               0 0 20px #fff, 
+               0 0 40px #fff;
+}
+  
+  
+    th{ 
+        padding-left: 30px;
+        color:#fff;
+    }
+    .image {
+      display: flex;
+      margin-left: 30%;
+    }        
+    .image1 {
+        margin-top: 15px;
+        margin-right: 20px;
+    }
+    #loader {
+        margin-left: 45%;
+    }
+</style>
+<div class="image">
+<img class="image1" onclick="parent.location='announcement.html'" src="data:image/png;base64,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" width="80px" height="50px">   
+<div class="center"><h1>Bugs Reported</h1></div>
+</div>
+<image id="loader" src="https://miro.medium.com/max/1080/0*DqHGYPBA-ANwsma2.gif" height="100px" width="200px">
+<table class="table table-striped">
+    <tr  class="bg-info">
+        <th>Email</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th>URL</th>
+    </tr>
+
+    <tbody id="myTable">
+        
+    </tbody>
+</table>
+
+<script>
+	var myArray =[{
+        email:'pranav.agarw@gmail.com',
+        title:'site not loading image',
+        desc:'the site is unable to load the image when im pressing enter. please find a fix for the issue'
+    },{
+        email:'soumya@gmail.com',
+        title:'site not rendering correctly',
+        desc:'the site is unable to render correctly on my phone properly with the texts being overlapped. please fix.'
+    }]
+
+    async function viewBugs () {
+            let result = await fetch("http://34.229.15.195:8080/bugs", { 
+                method: "GET",
+            })
+            if(result)
+            document.getElementById("loader").style.display="none"
+            result = await result.json()
+            console.log("Bug Backend")
+            console.log(result)
+            buildTable(result)
+    }
+    viewBugs()
+	
+	//buildTable(myArray)
+
+
+
+	function buildTable(data){
+		var table = document.getElementById('myTable')
+		for (var i = data.length-1; i >= 0; i--){
+			var row = `<tr>
+							<td>${data[i].email}</td>
+							<td>${data[i].subject}</td>
+							<td>${data[i].description}</td>
+                            <td>${data[i].url}</td>
+					  </tr>`
+			table.innerHTML += row
+
+
+		}
+	}
+
+</script>
