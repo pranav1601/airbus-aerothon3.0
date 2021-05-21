@@ -13,7 +13,7 @@ app.use(allowCrossDomain);
 
 const client = new Client({
     user: "postgres",
-    password: "tamina",
+    password: "airbus",
     host: "localhost",
     port: 5432,
     database: "airbus_aerothon",
