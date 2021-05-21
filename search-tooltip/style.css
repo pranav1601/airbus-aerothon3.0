@@ -128,3 +128,20 @@ margin: 2px;
   /* font-size: 16px; */
   font-family: Arial, sans-serif;
 }
+
+/* #main { 
+    position: fixed; 
+    top: 40%; 
+    right: 200px; 
+    width: 400px; 
+    border: 0px solid #421; 
+    padding: 40px; 
+}
+#main div { 
+    margin: 10px; 
+}  */
+#input { 
+    border: 0; 
+    padding: 5px; 
+    border: 1px solid #421; 
+}
