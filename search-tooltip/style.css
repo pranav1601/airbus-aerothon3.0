@@ -15,7 +15,7 @@ body{
     /* align-items: center; */
     /* min-height: 100vh; */
     overflow: hidden;
-    /*overflow-y: scroll;*/
+    /* overflow-y: scroll; */
 }
 
 .navigation{
@@ -90,9 +90,18 @@ body{
     width: 100%;
 }
 
-.navigation ul li:hover{
-    background: #03a9f4;
+.tooltipsele{
+    font-size: 12px;
+    margin:2px 1px ;
+    padding: 8px 16px;
+    border-style: solid;
+    border-width: 0.5px;
+    border-color: #ff4081;
 }
+
+/* .navigation ul li:hover{
+    background: #03a9f4;
+} */
 
 .navigation ul li a{
     position:relative;
@@ -116,18 +125,66 @@ position: absolute;
   border: 2px solid #ccc;
   
   /* font-size: 16px; */
+  
   font-family: Arial, sans-serif;
 }
 
-/*.graph-container {
-    overflow-y: scroll;
-}*/
 .graph{
 margin: 2px;
   padding: 2px;
-  height: 300px;
+  height: 190px;
   border: 2px solid #ccc;
-  /*overflow-y: scroll;*/
+  
   /* font-size: 16px; */
   font-family: Arial, sans-serif;
 }
+
+/* #main { 
+    position: fixed; 
+    top: 40%; 
+    right: 200px; 
+    width: 400px; 
+    border: 0px solid #421; 
+    padding: 40px; 
+}
+#main div { 
+    margin: 10px; 
+}  */
+#input { 
+    border: 0; 
+    padding: 5px; 
+    border: 1px solid #421; 
+}
+
+.button {
+    background-color: #2196f3; /* Green */
+    border: none;
+    color: white;
+    padding: 8px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 2px 1px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+  }
+  
+  .button1 {
+    background-color: white; 
+    color: black; 
+    width: 200px;
+    border: 1px solid #2196f3;
+  }
+  .button1:hover {
+    background-color: #2196f3;
+    color: white;
+  }
+
+  .red{
+      color: red;
+  }
+
+  .green{
+      color: green;
+  }

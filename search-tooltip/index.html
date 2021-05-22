@@ -9,10 +9,11 @@
         <div id="draggable" class="navigation">
             <div class="toggle"></div>
             <div>
-                    <li >
+                <ul>
+                    <li class="features">
                         <a href="#">
                             <span class="icon"></span>
-                            <span id="tooltips" class="title">Tooltips</span>
+                            <button id="tooltips" class="button button1">Tooltips</button>
                         </a>
                         <ul id="tooltipsEle">
                         </ul>
@@ -20,37 +21,32 @@
                     <li>
                         <a href="#">
                             <span class="icon"></span>
-                            <span class="title">Chat</span>
+                            <button id="chat" class="button button1">Chat</button>
+                        </a>
+                        <ul id="main" class="scroll">
+                            <div class="chat"><input id="input" type="text" placeholder="Say something..." autocomplete="off"/></div>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span class="icon"></span>
+                            <button class="button button1">Report bug</button>
                         </a>
                     </li>
                     <li>
                         <a href="#">
                             <span class="icon"></span>
-                            <span class="title">Report bug</span>
+                            <button id="performance" class="button button1">Performance</button>
                         </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <span class="icon"></span>
-                            <span id="performance" class="title">Performance</span>
-                        </a>
-                        <!-- <div id="container" class="box1"> -->
-                            <!-- <input type="button" id="box1 button" class="box1 button" value="Start your 30 day free trial"> -->
-            
-                        <div class="graph-container" id="container">
+                        <div id="container">
                             <div id="container1">   
                             </div>
                             <div id="container2">   
                             </div>
                         </div>
-                            
-                        <!-- </div> -->
                     </li>
                 </ul>
             </div>
         </div>
-    </body>
-    <!-- <script src="https://cdn.anychart.com/releases/8.10.0/js/anychart-core.min.js"></script>
-    <script src="https://cdn.anychart.com/releases/8.10.0/js/anychart-cartesian.min.js"></script> -->
-    <script src="./bundle.js"></script>
+    </body><script src="./bundle.js"></script>
 </html>
