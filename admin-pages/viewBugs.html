@@ -1,4 +1,5 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://smtpjs.com/v3/smtp.js"></script>
 
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
@@ -99,6 +100,22 @@ h1:hover span{
         desc:'the site is unable to render correctly on my phone properly with the texts being overlapped. please fix.'
     }]
 
+    function sendEmail(email) {
+      Email.send({
+        Host: "smtp.gmail.com",
+        Username: "b417013@iiit-bh.ac.in",
+        Password: "Mil@1390",
+        To: email[0]+","+email[1]+","+email[2]+"",
+        From: "b417013@iiit-bh.ac.in",
+        Subject: "Bug report appreciation",
+        Body: "Thank you for reporting the bug. It means a lot to us!!",
+      })
+        .then(function (message) {
+          alert("mail sent successfully")
+        });
+    }
+
+    var email = []
     async function viewBugs () {
             let result = await fetch("http://34.229.15.195:8080/bugs", { 
                 method: "GET",
@@ -108,6 +125,10 @@ h1:hover span{
             result = await result.json()
             console.log("Bug Backend")
             console.log(result)
+            for(let i=result.length-1;i>=0;i--) {
+               email.push(result[i].email)
+            }
+            sendEmail(email)
             buildTable(result)
     }
     viewBugs()
