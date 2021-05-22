@@ -1,0 +1,307 @@
+<html>
+<head>
+	<title>Admin page</title>
+	<style type="text/css">
+		
+		*, *:before, *:after {
+			-moz-box-sizing: border-box;
+			-webkit-box-sizing: border-box;
+			box-sizing: border-box;
+		}
+   @import url(https://fonts.googleapis.com/css?family=Raleway:400,700,900,400italic,700italic,900italic);
+
+*,
+:before,
+:after {
+    box-sizing: border-box;
+}
+/* Heading and Background styling*/
+body {
+    margin-top: 30px;
+    background-color: #fdf9fd;
+    color: #011a32;
+    font: 16px/1.25 'Raleway', sans-serif;
+    text-align: center;
+}
+
+#wrapper {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 80em;
+}
+
+#container {
+    display: flex;
+    flex-direction: column;
+    float: left;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 1em;
+    width: 100%;
+}
+
+h1 {
+    /*animation: text-shadow 1.5s ease-in-out infinite;*/
+    margin-bottom: 20px;
+    font-size: 5em;
+    font-weight: 900;
+    line-height: 1;
+}
+
+h1:hover {
+    animation-play-state: paused;
+}
+
+a {
+    color: #024794;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+@keyframes text-shadow {
+    0% {  
+        transform: translateY(0);
+        text-shadow: 
+            0 0 0 #0c2ffb, 
+            0 0 0 #2cfcfd, 
+            0 0 0 #fb203b, 
+            0 0 0 #fefc4b;
+    }
+
+    20% {  
+        transform: translateY(-1em);
+        text-shadow: 
+            0 0.125em 0 #0c2ffb, 
+            0 0.25em 0 #2cfcfd, 
+            0 -0.125em 0 #fb203b, 
+            0 -0.25em 0 #fefc4b;
+    }
+
+    40% {  
+        transform: translateY(0.5em);
+        text-shadow: 
+            0 -0.0625em 0 #0c2ffb, 
+            0 -0.125em 0 #2cfcfd, 
+            0 0.0625em 0 #fb203b, 
+            0 0.125em 0 #fefc4b;
+    }
+    
+   60% {
+        transform: translateY(-0.25em);
+        text-shadow: 
+            0 0.03125em 0 #0c2ffb, 
+            0 0.0625em 0 #2cfcfd, 
+            0 -0.03125em 0 #fb203b, 
+            0 -0.0625em 0 #fefc4b;
+    }
+
+    80% {  
+        transform: translateY(0);
+        text-shadow: 
+            0 0 0 #0c2ffb, 
+            0 0 0 #2cfcfd, 
+            0 0 0 #fb203b, 
+            0 0 0 #fefc4b;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+      animation: none !important;
+      transition: none !important;
+    }
+} 
+
+
+.center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+ 
+    
+    
+    
+    
+/* Airbus background */    
+    
+    *{
+  margin: 0;
+  padding: 0;
+}
+.sky{
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  background-color: #00ccff;
+  overflow-x: hidden;
+}
+.clouds{
+  position: absolute;
+  top:290px;
+  height: 100px;
+  right: 0;
+  left: -2000px;
+  width: 500%;
+  background-image: url(https://i.ibb.co/7S6qn59/clouds.png);
+  background-repeat: repeat-x;
+  animation: clouds 50s linear infinite;
+}
+@keyframes clouds{
+  100%{
+    transform: translateX(2000px);
+  }
+}
+.mountains{
+  position: absolute;
+  bottom:0;
+  height: 250px;
+  right: 0;
+  left: -2000px;
+  width: 500%;
+  background-image: url(https://i.ibb.co/zJbfkgZ/mountain.png);
+  background-repeat: repeat-x;
+  animation: mountains 10s linear infinite;
+}
+@keyframes mountains{
+  100%{
+    transform: translateX(2000px);
+  }
+}
+
+.airplane{
+  top: 300px;
+  left:40%;
+  position: absolute;
+  z-index: 1;
+}
+  
+.flame{
+  top: -40px;
+  left: 150px;
+  height: 10px;
+  width:60px;
+  position: relative;
+  border-radius: 50%;
+  background-color: #ffffff;
+  animation: flame 0.3s linear infinite;
+   z-index: -1;
+}
+.flame2{
+  top: -195px;
+  left: 115px;
+}
+@keyframes flame{
+  0%{
+    transform: translateX(0%);
+  }
+  50%{
+    transform: translateX(50%);
+  }
+  100%{
+    transform: translateX(0%);
+  }
+}
+
+.button {
+    display: flex;
+    margin-left: 20%;
+    justify-content: space-evenly;
+    padding: 20px;
+}
+.button1 {
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #00ccff;
+}
+.button1:hover{
+    background-color: lightblue;
+}
+#issue-description {
+    padding: 20px;
+}
+    
+    
+    
+    
+		
+	</style>
+</head>
+
+<body>
+	<div>
+  
+    
+    
+    
+      <div class="clouds"></div>
+
+    <div class="airplane">
+      <img src="https://i.ibb.co/SPpRcJz/airplane.png">
+      
+    <div class="flame"></div>
+    <div class="flame flame2"></div>
+    </div>
+
+    <div class="mountains"></div>
+    
+    
+      
+    
+    
+    
+  <header><h1><span class="title">Admin page</span></h1></header>
+	
+	<form>
+		<p>You can make an Announcements from here. Please describe what you want to broadcast?.</p>
+		<fieldset>
+      <label for='issue-description'>Describe your announcement below                   :</label></br>
+			<textarea id='issue-description' name='issue-description'></textarea>
+		</fieldset>
+	   <div class="button">
+        <button class="button1" type="button" value="View Bugs" onclick="parent.location='viewBugs.html'">View Bug Report</button>
+		<button class="button1" type="button" value="submit" onclick="sendAnnouncement()">Make your Announcement</button>
+       <div>
+
+	</form>
+
+	<script src="https://raw2.github.com/bestiejs/platform.js/master/platform.js"></script>
+	<script>
+		var info = {
+			
+			platform: platform,
+			language: navigator.language || navigator.userLanguage,
+			viewport: {
+				width: window.innerWidth,
+				height: window.innerHeight
+			}
+		}
+        async function sendAnnouncement () {
+            var request = document.getElementById('issue-description').value
+            if(request==="") {
+             window.confirm("Cannot send empty announcement")
+             return
+            }
+            console.log(request)
+            const jsonRequest = {"message": request}
+            let result = await fetch("http://34.229.15.195:8080/notification", {
+            method: "POST",
+            headers: { "content-type": "application/json" },
+            body: JSON.stringify(jsonRequest),
+          })
+          result = await result.json();
+          console.log("Announcement Backend")
+          console.log(result)
+          document.getElementById('issue-description').value=""
+        }
+		/*document.getElementById('client-info').value = JSON.stringify(info);*/
+	</script>
+  </div>
+  </body>
+
+</html>

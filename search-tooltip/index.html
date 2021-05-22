@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Draggable Action menu UI design</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div id="draggable" class="navigation">
+            <div class="toggle"></div>
+            <div>
+                <ul>
+                    <li class="features">
+                        <a href="#">
+                            <span class="icon"></span>
+                            <button id="tooltips" class="button button1">Tooltips</button>
+                        </a>
+                        <ul id="tooltipsEle">
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span class="icon"></span>
+                            <button id="chat" class="button button1">Chat</button>
+                        </a>
+                        <ul id="main" class="scroll">
+                            <div class="chat"><input id="input" type="text" placeholder="Say something..." autocomplete="off"/></div>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span class="icon"></span>
+                            <button id="reportbugbutton" class="button button1">Report bug</button>
+                        </a>
+                        <div id="reportbug" class="reportbug">
+                            <div id="bug-report">
+                                <h3 id="reporthead">Submit a bug report.</h3>
+                                <label for="subject">Subject:</label><br>
+                                <input type="text" id="subject" name="subject"><br>
+                                <label for="description">Description:</label><br>
+                                <textarea name="description" id="description" cols="30" rows="5" form="bug-report"></textarea><br>
+                                <label for="email">Email:</label><br>
+                                <input type="text" id="email" name="email"><br>
+                                <br>
+                                <button id="submitbug" class="button">Submit bug</button>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span class="icon"></span>
+                            <button id="performance" class="button button1">Performance</button>
+                        </a>
+                        <div id="container">
+                            <div id="container1">   
+                            </div>
+                            <div id="container2">   
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span class="icon"></span>
+                            <button id="announcements" class="button button1">Announcements!!!</button>
+                        </a>
+                        <h2 id="announcement-message" class="announcement red"></h2>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </body><script src="./bundle.js"></script>
+</html>

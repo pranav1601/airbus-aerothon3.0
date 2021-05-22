@@ -1,0 +1,16 @@
+{
+  "name": "search-tooltip",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "anychart": "^8.9.0",
+    "request-promise": "^4.2.6"
+  }
+}
