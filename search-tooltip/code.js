@@ -344,10 +344,15 @@ document.addEventListener('DOMContentLoaded',function(){
 
 
                     document.getElementById("submitbug").onclick=async function(){
+                        document.getElementById("errorsubmit").innerHTML=""
                         var subject = document.getElementById("subject").value;
                         var description = document.getElementById("description").value;
                         var email = document.getElementById("email").value;
                         var jsonRequest = {};
+                        if(subject.length===0 || description.length===0 || email.length===0){
+                            document.getElementById("errorsubmit").innerHTML="Please enter all fields!"
+                            return
+                        }
                         document.getElementById("subject").value=''
                         document.getElementById("description").value='';
                         document.getElementById("email").value='';
